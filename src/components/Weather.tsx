@@ -1,55 +1,93 @@
-import React, { FC } from 'react';
-import { WeatherData } from '../store/types';
+import React, { FC } from "react";
+import { WeatherData } from "../store/types";
 
 interface WeatherProps {
   data: WeatherData;
 }
 
-// interface Previsao {
-//   previsao: Weather;
-// }
-
-
-const Weather: FC<WeatherProps> = ({ data }) => { 
-  // const dia = new Date(13/08/2022);
-  console.log(data);
-
-  return(
+const Weather: FC<WeatherProps> = ({ data }) => {
+  return (
     <section className="section">
       <div className="container">
-        <h1 className="title has-text-centered" style={{marginBottom: 50}}>Previsão do Tempo</h1>
-        <div className="level" style={{alignItems: 'flex-start'}}>
-          <div className="level-item has-text-centered">
-            <div>
-              <p className="heading">{data.dia.manha.entidade}</p>
-              {/* <p className="title"><img src={data.dia.['manha'].cod_icone} alt=""/></p> */}
+        <h1 className="heading has-text-centered">
+          {data.dia.manha.entidade}, {data.dia.manha.dia_semana}
+        </h1>
+        <p className="heading" id="primary">
+          Temperatura do dia:
+        </p>
+        <div className="columns">
+          <div className="column">
+            <div className="title">
+              <div>
+                <div className="heading" id="primary">
+                  Max:
+                </div>
+                <p className="mb-2" id="white-text">
+                  {data.dia.manha.temp_max.toString()}°C
+                </p>
+              </div>
+              <div className="heading" id="primary">
+                Tendência:<img src=""></img> {data.dia.manha.temp_max_tende}
+              </div>
             </div>
           </div>
-        
-          <div className="level-item has-text-centered">
-            <div>
-              <p className="heading">Manha</p>
-              <div className="title">
-                <p className="mb-2">{data.dia.manha.temp_max.toString()}°C</p>
+          <div className="column">
+            <div className="title">
+              <div>
+                <div className="heading" id="primary">
+                  Min:
+                </div>
+                <p className="mb-2" id="white-text">
+                  {data.dia.manha.temp_min.toString()}°C
+                </p>
+              </div>
+              <div className="heading" id="primary">
+                Tendência:<img src=""></img> {data.dia.manha.temp_min_tende}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="columns">
+        <div className="column">
+          <p className="heading">Manha</p>
+          <div className="title">
             <div>
-              <p className="heading">Tarde</p>
-              <div className="title">
-                <p className="mb-2">{data.dia.tarde.temp_max.toString()}°C</p>
-              </div>
+              <img src=""></img>
             </div>
+            <div className="heading" id="primary">
+              {data.dia.manha.resumo}
+            </div>            
+          </div>
+        </div>
+
+        <div className="column">
+          <p className="heading">Tarde</p>
+          <div className="title">
             <div>
-              <p className="heading">Noite</p>
-              <div className="title">
-                <p className="mb-2">{data.dia.noite.temp_max.toString()}°C</p>
-              </div>
+              <img src=""></img>
             </div>
-          </div>          
+            <div className="heading" id="primary">
+              {data.dia.tarde.resumo}
+            </div>
+          </div>
+        </div>
+
+        <div className="column">
+          <p className="heading">Noite</p>
+          <div className="title">
+            <div>
+              <img src=""></img>
+            </div>
+            <div className="heading" id="primary">
+              {data.dia.noite.resumo}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Weather;

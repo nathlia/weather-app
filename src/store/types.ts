@@ -13,29 +13,6 @@ export interface WeatherData {
         manha: WeatherPeriod,
         tarde: WeatherPeriod,
         noite: WeatherPeriod,
-        // periodo: {
-        //     uf: string;
-        //     entidade: string;
-        //     resumo: string;
-        //     tempo: string;
-        //     temp_max: Number;
-        //     temp_min: Number;
-        //     cod_icone: string;
-        //     icone: string;
-        //     dia_semana: string;
-        //     umidade_max: Number;
-        //     umidade_min: Number;
-        //     temp_max_tende: string;
-        //     cod_temp_max_tende_icone: string;
-        //     temp_max_tende_icone: string;
-        //     temp_min_tende: string;
-        //     temp_min_tende_icone: string;
-        //     estacao: string;
-        //     hora: string;
-        //     nascer: string;
-        //     ocaso: string;
-        //     fonte: string;    
-        // },
     }    
 }
 

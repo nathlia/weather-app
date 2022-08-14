@@ -5,11 +5,11 @@ import { WeatherAction, WeatherData, WeatherError, GET_WEATHER, SET_LOADING, SET
 
 export const getWeather = (geocode: number): ThunkAction<void, RootState, null, WeatherAction> => {
   return async dispatch => {
-    var geocode = "4316907";
+    //var geocode = "4316907";
     var dataHoje = moment(new Date()).format('DD/MM/YYYY');
      
     try {
-      const res = await fetch(`https://apiprevmet3.inmet.gov.br/previsao/4316907`);
+      const res = await fetch(`https://apiprevmet3.inmet.gov.br/previsao/${geocode}`);
 
       if(!res.ok) {
         const resData: WeatherError = await res.json();
